@@ -1,0 +1,34 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    # La matrix strategy demandée par le TP
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+    - name:  Récupérer le code (Checkout)
+      uses: actions/checkout@v4
+
+    - name:  Configurer Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name:  Installer les dépendances
+      run: npm ci
+
+    - name:  Vérifier le code (Linter)
+      run: npm run lint
+
+    - name:  Lancer les tests automatisés
+      run: npm test

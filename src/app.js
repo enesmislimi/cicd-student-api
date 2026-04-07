@@ -41,7 +41,7 @@ app.get('/students/search', (req, res) => {
 
 // 3. GET /students
 app.get('/students', (req, res) => {
-    res.status(500).json(students);
+    res.status(200).json(students);
 });
 
 // 4. GET /students/:id

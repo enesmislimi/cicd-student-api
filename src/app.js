@@ -6,7 +6,6 @@ const app = express();
 // Middleware obligatoire pour lire le JSON dans le corps des requêtes (POST/PUT)
 app.use(express.json());
 
-// --- ROUTES STATS ET SEARCH (Doivent être avant /:id) ---
 
 // 1. GET /students/stats
 app.get('/students/stats', (req, res) => {
@@ -42,7 +41,7 @@ app.get('/students/search', (req, res) => {
 
 // 3. GET /students
 app.get('/students', (req, res) => {
-    res.status(200).json(students);
+    res.status(500).json(students);
 });
 
 // 4. GET /students/:id

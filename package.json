@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint src/**/*.js tests/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,7 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
-    "eslint": "^10.2.0",
+    "eslint": "^8.57.1",
     "jest": "^30.3.0",
     "supertest": "^7.2.2"
   }
